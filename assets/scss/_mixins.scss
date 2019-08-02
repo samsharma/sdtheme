@@ -1,0 +1,31 @@
+@mixin innerBanner{
+  background: $inner-banner-one;
+  background: linear-gradient(90deg, $inner-banner-one 0%, $inner-banner-two 100%);
+
+}
+
+
+
+
+/*media query*/
+
+@mixin respond-to($media) {
+  @if $media == extrasmall {
+    @media (max-width: $break-extrasmall) { @content; }
+  }
+  @else if $media == small-screens {
+    @media (min-width: $break-extrasmall + 1) and (max-width: $break-small - 1) { @content; }
+  }
+   @else if $media == medium-screens {
+    @media (min-width: $break-small) and (max-width: $break-medium) { @content; }
+  }
+  @else if $media == large-screens {
+    @media (min-width: $break-medium + 1) and (max-width: $break-large ) { @content; }
+  }
+   @else if $media == medium-large-screens {
+    @media (min-width: $break-large + 1) and (max-width: $break-extralarge - 1 ) { @content; }
+  }
+  @else if $media == extralarge-screens {
+    @media (min-width: $break-extralarge) { @content; }
+  }
+}
